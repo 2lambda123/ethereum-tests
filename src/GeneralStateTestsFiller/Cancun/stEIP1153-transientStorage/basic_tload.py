@@ -6,15 +6,8 @@ https://eips.ethereum.org/EIPS/eip-1153
 from typing import Dict, Union
 
 import pytest
-
-from ethereum_test_tools import (
-    Account,
-    Address,
-    Environment,
-    StateTestFiller,
-    TestAddress,
-    Transaction,
-)
+from ethereum_test_tools import (Account, Address, Environment,
+                                 StateTestFiller, TestAddress, Transaction)
 from ethereum_test_tools.vm.opcode import Opcodes as Op
 
 REFERENCE_SPEC_GIT_PATH = "EIPS/eip-1153.md"
