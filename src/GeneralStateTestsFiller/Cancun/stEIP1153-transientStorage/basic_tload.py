@@ -29,7 +29,7 @@ def test_basic_tload(
     tload costs 100 gas same as a warm sload (16_tloadGasFiller.yml)
     tload from same slot after store returns 0 (18_tloadAfterStoreFiller.yml)
 
-    :param state_test: StateTestFiller: 
+    :param state_test: StateTestFiller:
 
     """
 
