@@ -18,13 +18,15 @@ REFERENCE_SPEC_VERSION = "2f8299df31bb8173618901a03a8366a3183479b0"
 def test_basic_tload(
     state_test: StateTestFiller,
 ):
-    """
-    Covered .json vectors:
+    """Covered .json vectors:
     load arbitrary value is 0 at beginning of transaction (01_tloadBeginningTxnFiller.yml)
     tload from same slot after tstore returns correct value (02_tloadAfterTstoreFiller.yml)
     Loading any other slot after storing to a slot returns 0. (03_tloadAfterStoreIs0Filler.yml)
     tload costs 100 gas same as a warm sload (16_tloadGasFiller.yml)
     tload from same slot after store returns 0 (18_tloadAfterStoreFiller.yml)
+
+    :param state_test: StateTestFiller: 
+
     """
 
     address_to = Address("A00000000000000000000000000000000000000A")
