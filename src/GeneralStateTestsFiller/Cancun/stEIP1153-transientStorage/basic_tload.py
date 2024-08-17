@@ -13,7 +13,7 @@ from ethereum_test_tools import (
     Environment,
     StateTestFiller,
     TestAddress,
-    Transaction
+    Transaction,
 )
 from ethereum_test_tools.vm.opcode import Opcodes as Op
 
@@ -78,22 +78,22 @@ def test_basic_tload(
             + Op.MSTORE(0, Op.GAS())
             + Op.TLOAD(16)
             + Op.MSTORE(32, Op.GAS())
-            + Op.SSTORE(tload_nonzero_gas_price_result,
-                        Op.SUB(Op.MLOAD(0), Op.MLOAD(32)))
-            + Op.SSTORE(tload_nonzero_gas_price_result,
-                        Op.SUB(Op.SLOAD(16), extra_opcode_gas))
+            + Op.SSTORE(
+                tload_nonzero_gas_price_result, Op.SUB(Op.MLOAD(0), Op.MLOAD(32))
+            )
+            + Op.SSTORE(
+                tload_nonzero_gas_price_result, Op.SUB(Op.SLOAD(16), extra_opcode_gas)
+            )
             # from zero slot
             + Op.MSTORE(0, Op.GAS())
             + Op.TLOAD(5)
             + Op.MSTORE(32, Op.GAS())
-            + Op.SSTORE(tload_zero_gas_price_result,
-                        Op.SUB(Op.MLOAD(0), Op.MLOAD(32)))
-            + Op.SSTORE(tload_zero_gas_price_result,
-                        Op.SUB(Op.SLOAD(1601), extra_opcode_gas))
+            + Op.SSTORE(tload_zero_gas_price_result, Op.SUB(Op.MLOAD(0), Op.MLOAD(32)))
+            + Op.SSTORE(
+                tload_zero_gas_price_result, Op.SUB(Op.SLOAD(1601), extra_opcode_gas)
+            )
             # 18_tloadAfterStoreFiller.yml
-            + Op.SSTORE(18, 22)
-            + Op.SSTORE(tload_from_sstore_result, Op.TLOAD(18)),
-
+            + Op.SSTORE(18, 22) + Op.SSTORE(tload_from_sstore_result, Op.TLOAD(18)),
             storage={
                 tload_at_transaction_begin_result: 0xFF,
                 tload_after_tstore_result: 0xFF,
@@ -101,7 +101,7 @@ def test_basic_tload(
                 tload_wrong_after_tstore_result: 0xFF,
                 tload_nonzero_gas_price_result: 0xFF,
                 tload_zero_gas_price_result: 0xFF,
-                tload_from_sstore_result: 0xFF
+                tload_from_sstore_result: 0xFF,
             },
         ),
         TestAddress: Account(
@@ -122,7 +122,7 @@ def test_basic_tload(
             tload_wrong_after_tstore_result: 0x00,
             tload_nonzero_gas_price_result: 100,
             tload_zero_gas_price_result: 100,
-            tload_from_sstore_result: 0x00
+            tload_from_sstore_result: 0x00,
         }
     )
 
