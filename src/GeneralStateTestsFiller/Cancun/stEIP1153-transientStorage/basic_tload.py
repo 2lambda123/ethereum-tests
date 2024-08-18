@@ -3,16 +3,11 @@ Ethereum Transient Storage EIP Tests
 https://eips.ethereum.org/EIPS/eip-1153
 """
 
-from typing import Dict
-from typing import Union
+from typing import Dict, Union
 
 import pytest
-from ethereum_test_tools import Account
-from ethereum_test_tools import Address
-from ethereum_test_tools import Environment
-from ethereum_test_tools import StateTestFiller
-from ethereum_test_tools import TestAddress
-from ethereum_test_tools import Transaction
+from ethereum_test_tools import (Account, Address, Environment,
+                                 StateTestFiller, TestAddress, Transaction)
 from ethereum_test_tools.vm.opcode import Opcodes as Op
 
 REFERENCE_SPEC_GIT_PATH = "EIPS/eip-1153.md"
