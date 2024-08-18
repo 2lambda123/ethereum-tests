@@ -30,7 +30,7 @@ def test_basic_tload(
     tload from same slot after store returns 0 (18_tloadAfterStoreFiller.yml)
 
     :param state_test: StateTestFiller:
-    :param state_test: StateTestFiller: 
+    :param state_test: StateTestFiller:
 
     """
 
